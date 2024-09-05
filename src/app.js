@@ -129,7 +129,7 @@ const connectDB = async () => {
   mongoose.connection.on('reconnected', () => { process.db_status = { connected: true } });
   mongoose.connection.on('connected', () => { process.db_status = { connected: true } });
 }
-connectDB()
+// connectDB()
 
 io.on('connection', socket => {
 
