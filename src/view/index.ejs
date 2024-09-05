@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>        
+        <main>
+            <div class="page-section home-ps-1">
+                <div class="bg-block">
+                    <div class="color-image"></div>
+                    <img class="home-background1" src="/img/cabin.webp" alt="team fortress 2 cabin">
+                </div> 
+                <div class="home-text">
+                    <h1 clas="header">
+                        <span class="lang lang-en"><img src="/img/logotype.png" alt=""> is not ready yet. <span class="block">However your can get notified when it launches!</span></span>
+                    </h1>
+                    <div class="steam-login">
+                        <% if(user){ %>
+                            <div class="user-section">
+                                
+                            </div>
+                        <% } else { %>
+                            <a href="/auth/steam" nofollow><span><span class="icon icon-steam_circle"></span> Sign in via Steam</span></a>
+                        <% } %>
+                    </div>
+                    <form action="/email" method="post" id="form-submit" name="email">
+                        <label for="email">Enter your valid email</label>
+                        <div class="input-email">
+                            <input type="text">
+                            <button type="submit"></button>
+                        </div>
+
+                        <ul>
+                            <li class="checked">By submiting you'll earn <span aria-label="This status gives you some benefits compared to regular users." data-microtip-position="bottom" role="tooltip">Loyal User</span> status on tf2deal.com</li>
+                            <li <%if(user){ %> class="checked" <% } %>>Sign in via steam (this is to prevent fake emails and spam)</li>
+                            <li>Make sure email is in the right format</li>
+                            <li>You can submit only 1 email per Steam account</li>
+                        </ul>
+                    </form>
+                    <h2 clas="header">
+                        <span class="lang lang-en">Follow on socials</span>
+                        <div class="social-media">
+                            <a rel="nofollow" href="https://steamcommunity.com/groups/tf2dealgroup" target="_blank">
+                                <span class="icon icon-steam_circle"></span>
+                            </a>
+                            <a rel="nofollow" href="https://discord.gg/br3WvWaW5y" target="_blank">
+                                <span class="icon icon-discord"></span>
+                            </a>
+                            <a rel="nofollow" href="https://www.facebook.com/groups/1952662985090434" target="_blank">
+                                <span class="icon icon-facebook"></span>
+                            </a>
+                        </div>
+                    </h2>
+                </div>
+            </div>
+        </main>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

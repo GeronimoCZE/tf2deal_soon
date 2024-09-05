@@ -1,0 +1,4 @@
+User-agent: *
+
+Host: tf2deal.com
+Sitemap: https://tf2deal.com/sitemap.xml
