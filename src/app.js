@@ -1,4 +1,4 @@
-const DOMAIN = 'localhost' // 192.168.0.161
+const DOMAIN = 'localhost'
 const PORT = 3000; // change to 8080
 
 const express = require('express');
@@ -193,9 +193,21 @@ app.post('/email', (req, res) => {
   }
 })
 
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send({ status: "error", error: 'Something failed!' })
+})
+
+app.use((err, req, res, next) => {
+  if (req.xhr) {
+    res.status(500).send({ status: "error", error: 'Something failed!' })
+  } else {
+    next(err)
+  }
+})
+
 app.get('*', (req, res) => {
     res.render('index.ejs', {user: req.user})
 });
-
 
 server.listen(process.env.PORT || PORT, () => console.log(`running on URL localhost:${PORT}`)); 
